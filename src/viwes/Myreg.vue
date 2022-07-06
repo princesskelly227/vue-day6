@@ -22,8 +22,6 @@
           <span>邀请码(选填)</span><br />
           <input type="text" placeholder="输入客户经理邀请码" /> <br />
         </template>
-
-        <MyEmail></MyEmail>
       </component>
     </keep-alive>
   </div>

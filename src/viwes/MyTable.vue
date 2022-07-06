@@ -8,9 +8,9 @@
         <input type="text" name="" id="" v-model="scope.row.age" />
       </template>
       <template #img="scope">
-        <!-- <a href=""></a>
-        <img src="" alt="" /> -->
-        {{ arr[scope.row.type] }}
+        <a v-if="scope.row.type == 0" :href="scope.row.headImgUrl">{{ scope.row.headImgUrl }}</a>
+        <img v-if="scope.row.type == 1" :src="scope.row.headImgUrl" alt="" />
+        <input  v-if="scope.row.type == 2" type="text"  :value="scope.row.headImgUrl"  />
       </template>
     </UseTable>
   </div>
@@ -34,6 +34,11 @@ export default {
   },
   components: {
     UseTable,
+  },
+  Create() {
+    if (scope.row.type == 0) {
+      scope.row.type = `<a :href="scope.row.headImgUrl"></a>`;
+    }
   },
 };
 </script>

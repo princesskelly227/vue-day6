@@ -1,23 +1,32 @@
 <template>
   <div>
-    <h1>表格案例</h1>
-    <MyTable></MyTable>
-
-    <br />
-    <h1>注册案例</h1>
-    <MyReg></MyReg>
+    <MyHeader title="购物车案例"></MyHeader>
+    <MyGoods v-for="obj in list" :key="obj.id" :item="obj"></MyGoods>
+    <MyFooter :arr="list"></MyFooter>
   </div>
 </template>
 
 <script>
-// 引入表格
-import MyTable from './viwes/MyTable.vue';
-
-import MyReg from './viwes/My_Reg.vue'
+//购物车
+import MyHeader from './components/MyCar/MyHeader.vue';
+import MyGoods from './components/MyCar/MyGoods.vue';
+import MyFooter from './components/MyCar/MyFooter.vue';
 export default {
+  data() {
+    return {
+      list: [],
+    };
+  },
   components: {
-    MyTable,
-    MyReg,
+    MyHeader,
+    MyGoods,
+    MyFooter,
+  },
+
+  created() {
+    this.$axios({
+      url: '/api/cart',
+    }).then((res) => (this.list = res.data.list));
   },
 };
 </script>

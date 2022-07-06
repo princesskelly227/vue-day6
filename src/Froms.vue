@@ -26,12 +26,6 @@ import FromsData from "./components/FromsData.vue";
 export default {
   data() {
     return {
-      type: 0,
-      obj: {
-        0: "<a href='javascript:'>{{scope.tx.headImgUrl}}</a>",
-        1: "<img :src='scope.tx.headImgUrl' />",
-        2: "scope.tx.headImgUrl",
-      },
     };
   },
   components: {
